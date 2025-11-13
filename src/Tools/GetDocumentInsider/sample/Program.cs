@@ -41,10 +41,9 @@ public class Program
         WebApplicationBuilder builder)
     {
         var env = builder.Environment.EnvironmentName;
-        // Only add environment to summary if explicitly set (not the default "Production")
-        if (!string.IsNullOrEmpty(env) && env != "Production")
+        if (!string.IsNullOrEmpty(env))
         {
-            document.Info.Summary += $"Running in '{env}' environment";
+            document.Info.Summary = $"Running in '{env}' environment";
         }
         return Task.CompletedTask;
     }
